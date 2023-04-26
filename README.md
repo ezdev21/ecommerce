@@ -8,6 +8,8 @@
 
 ![ecommerce](https://user-images.githubusercontent.com/78965149/183610848-2dce1449-40a4-41f0-8acd-ed3a8ca60550.png)
 
+## Installation
+
 clone the project `git clone https://github.com/ezra02/ecommerce`
 
 install componser dependencies `composer update`
@@ -19,6 +21,14 @@ generate key `php artisan key:generate`
 migrate database `php artisan migrate`
 
 start server `php artisan serve`
+
+## Installation using docker
+
+`docker-compose build ecommerce`
+
+`docker-compose up -d`
+
+`docker-compose exec ecommerce php artisan key:generate`
 
 ## Contributing
 
