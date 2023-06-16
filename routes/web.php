@@ -6,12 +6,12 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,25 +82,10 @@ Route::delete('comment/delete',[CommentController::class,'destroy']);
 
 //socialite login routes
 
-Route::get('/auth-provider/google/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
+Route::get('/auth/{provider}/redirect',[SocialiteController::class,'redirect']);
 
 Route::get('/auth-provider/google/callback', function () {
-    $googleUser = Socialite::driver('google')->user();
-
-    $user = User::updateOrCreate([
-        'google_id' => $googleUser->id,
-    ], [
-        'name' => $googleUser->name,
-        'email' => $googleUser->email,
-        'google_token' => $googleUser->token,
-        'google_refresh_token' => $googleUser->refreshToken,
-    ]);
-
-    Auth::login($user);
-
-    return redirect('/');
+    
 });
 
 Route::get('/auth-provider/facebook/redirect', function () {
