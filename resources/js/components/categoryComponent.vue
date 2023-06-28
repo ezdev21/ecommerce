@@ -2,7 +2,7 @@
    <div class="flex">
     <div v-for="product in products " :key="product.id">
      <a :href="'/product/show/'+product.id">
-      <img :src="'/storage/products/'+product.cover" class="w-32">
+      <img :src="'/storage/products/'+product.cover" class="w-32"/>
       <p>{{product.name}} {{product.price}} birr</p>
       <p>{{product.description}}</p>
       <div>

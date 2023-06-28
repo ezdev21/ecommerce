@@ -6,15 +6,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/breeze": "^1.21",
         "laravel/cashier": "^13.1",
-        "laravel/framework": "^10.0",
+        "laravel/framework": "10.13",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3",
-        "mll-lab/laravel-graphql-playground": "^2.5",
+        "laravel/ui": "^4.2",
         "nuwave/lighthouse": "^5.13",
         "softonic/graphql-client": "^1.3"
     },

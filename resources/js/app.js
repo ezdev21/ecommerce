@@ -9,7 +9,7 @@ import './bootstrap';
 window.Vue = require('vue').default;
 
 //import store from './ProductStore'
-import router from './CategoryRouter.js'
+//import router from './CategoryRouter.js'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
