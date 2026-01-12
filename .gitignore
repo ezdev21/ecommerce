@@ -11,3 +11,18 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+// client
+/client/node_modules
+/client/.DS_Store
+/client/dist
+/client/dist-ssr
+/client/*.local
+/client/count.txt
+/client/.env
+/client/.nitro
+/client/.tanstack
+/client/.wrangler
+/client/.output
+/client/.vinxi
+/client/todos.json
