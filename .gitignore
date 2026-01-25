@@ -13,3 +13,4 @@
 /client/todos.json
 
 /server/node_modules
+/server/.env
