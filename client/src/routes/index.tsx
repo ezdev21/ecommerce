@@ -12,7 +12,7 @@ function App() {
     id: 1,
     name: 'Sample Product',
     price: 29.99,
-    image: '/ecommerce.png',
+    image: '/ecommerce-placeholder.png',
   };
 
   useEffect(() => {
