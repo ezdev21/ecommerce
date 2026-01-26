@@ -12,7 +12,7 @@ export default function Navbar() {
           {/* Search */}
           <div className="flex flex-1 max-w-2xl">
             <select className="px-5 py-2 text-gray-700 bg-gray-200 rounded-l outline-none">
-              <option>Filter</option>
+              <option>All Categories</option>
               <option>Electronics</option>
               <option>Fashion</option>
               <option>Vehicles</option>
