@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <header className="w-full bg-green-400 text-white flex justify-between items-center">
       <div className="flex items-center gap-2 px-5">
-        <img src="ecommerce.png" className="w-40"/>
+        <img src="/ecommerce.png" className="w-40"/>
         <h1 className="text-5xl font-bold">Ezra <br></br> Market</h1>
       </div>
       <div className="flex flex-col">
@@ -25,7 +25,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="I'm shopping for..."
-              className="flex-1 px-4 py-2 text-gray-700 bg-white outline-none"
+              className="flex-1 px-4 py-2 text-gray-700 bg-white outline-none w-72"
             />
             <button className="px-7 bg-green-700 rounded-r-full">
               <Search size={18} />
@@ -33,7 +33,7 @@ export default function Navbar() {
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-5">
             <div className="relative">
               <Heart />
               <span className="absolute -top-2 -right-2 text-xs bg-green-700 rounded-full px-1">0</span>
