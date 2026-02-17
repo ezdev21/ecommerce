@@ -1,12 +1,13 @@
 import { Search, Heart, Bell, ShoppingCart, Phone, Menu, User } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export default function Navbar() {
   return (
-    <header className="w-full bg-green-400 text-white flex justify-between items-center">
-      <div className="flex items-center gap-2 px-5">
+    <header className="w-full bg-primary text-white flex justify-between items-center">
+      <Link to="/" className="flex items-center gap-2 px-5">
         <img src="/ecommerce.png" className="w-40"/>
         <h1 className="text-5xl font-bold">Ezra <br></br> Market</h1>
-      </div>
+      </Link>
       <div className="flex flex-col">
         <div className="flex items-center justify-between px-6 py-3 gap-15">
           {/* Search */}
@@ -27,32 +28,32 @@ export default function Navbar() {
               placeholder="I'm shopping for..."
               className="flex-1 px-4 py-2 text-gray-700 bg-white outline-none w-72"
             />
-            <button className="px-7 bg-green-700 rounded-r-full">
+            <button className="px-7 bg-secondary rounded-r-full">
               <Search size={18} />
             </button>
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-10">
             <div className="relative">
               <Heart />
-              <span className="absolute -top-2 -right-2 text-xs bg-green-700 rounded-full px-1">0</span>
+              <span className="absolute -top-2 -right-2 text-xs bg-secondary rounded-full px-1">0</span>
             </div>
             <div className="relative">
               <Bell />
-              <span className="absolute -top-2 -right-2 text-xs bg-green-700 rounded-full px-1">1</span>
+              <span className="absolute -top-2 -right-2 text-xs bg-secondary rounded-full px-1">1</span>
             </div>
             <div className="relative">
               <ShoppingCart />
-              <span className="absolute -top-2 -right-2 text-xs bg-green-700 rounded-full px-1">2</span>
+              <span className="absolute -top-2 -right-2 text-xs bg-secondary rounded-full px-1">2</span>
             </div>
           </div>
-          <div className="cursor-pointer rounded-full bg-green-700 p-3">
+          <div className="cursor-pointer rounded-full bg-secondary p-3">
             <User size={20} />
           </div>
         </div>
         <nav className="flex items-center justify-between px-6 py-2 bg-green-600">
-          <button className="flex items-center gap-2 bg-green-700 px-4 py-2 rounded">
+          <button className="flex items-center gap-2 bg-secondary px-4 py-2 rounded">
             <Menu size={18} />
             <span>Shop by Category</span>
           </button>
