@@ -7,14 +7,14 @@ from .serializers import CartSerializer
 def cart_list(request):
     carts = Cart.objects.all()
     serializer = CartSerializer(carts, many=True)
-    return Response({'carts': serializer.data})
+    return Response({'carts': serializer.data},status=200)
 
 @api_view(['GET'])
 def cart_detail(request,cart_id):    
     try:
         cart = Cart.objects.get(id=cart_id)
         serializer = CartSerializer(cart)
-        return Response({'cart': serializer.data})
+        return Response({'cart': serializer.data},status=200)
     except Cart.DoesNotExist:
         return Response({'error': 'Cart not found'}, status=404)
 
@@ -33,7 +33,7 @@ def cart_update(request, cart_id):
         serializer = CartSerializer(cart, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': f'Cart {cart_id} updated successfully', 'cart': serializer.data})
+            return Response({'message': f'Cart {cart_id} updated successfully', 'cart': serializer.data},status=200)
         return Response(serializer.errors, status=400)
     except Cart.DoesNotExist:
         return Response({'error': 'Cart not found'}, status=404)
@@ -43,6 +43,6 @@ def cart_delete(request, cart_id):
     try:
         cart = Cart.objects.get(id=cart_id)
         cart.delete()
-        return Response({'message': f'Cart {cart_id} deleted successfully'})
+        return Response({'message': f'Cart {cart_id} deleted successfully'},status=204)
     except Cart.DoesNotExist:
         return Response({'error': 'Cart not found'}, status=404)

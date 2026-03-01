@@ -7,14 +7,14 @@ from .serializers import ProductSerializer
 def product_list(request):
     products = Product.objects.order_by('-created_at')[:100]
     serializer = ProductSerializer(products, many=True)
-    return Response({'products': serializer.data})
+    return Response({'products': serializer.data}, status=200)
 
 @api_view(['GET'])
 def product_detail(request,product_id):    
     try:
         product = Product.objects.get(id=product_id)
         serializer = ProductSerializer(product)
-        return Response({'product': serializer.data})
+        return Response({'product': serializer.data},status=200)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
 
@@ -33,7 +33,7 @@ def product_update(request, product_id):
         serializer = ProductSerializer(product, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': f'Product {product_id} updated successfully', 'product': serializer.data})
+            return Response({'message': f'Product {product_id} updated successfully', 'product': serializer.data},status=200)
         return Response(serializer.errors, status=400)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
@@ -43,6 +43,6 @@ def product_delete(request, product_id):
     try:
         product = Product.objects.get(id=product_id)
         product.delete()
-        return Response({'message': f'Product {product_id} deleted successfully'})
+        return Response({'message': f'Product {product_id} deleted successfully'},status=204)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
