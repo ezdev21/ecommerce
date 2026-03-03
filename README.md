@@ -21,10 +21,6 @@ navigate to server directory: `cd server`
 
 install and configure postgres database
 
-create .env file run: `cp .env.example .env`
-
-setup credentials in the .env file from postgres databse
-
 Create a Python virtual environment
 
 ```bash
@@ -39,7 +35,7 @@ python -m venv venv
 
 install python dependencies: `pipenv install`
 
-Set environment variables
+setup credentials in the .env file from postgres databse
 
 ```bash
 cp .env.example .env   # Linux/macOS
