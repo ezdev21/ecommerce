@@ -13,11 +13,13 @@
 /client/todos.json
 
 /server/__pycache__/
+/server/**/__pycache__/
+/server/**/migrations/__pycache__/
+/server/**/*.py[cod]
 /server/.env
 /server/venv
 /server/*.py[cod]
 /server/*$py.class
-/server/migrations
 /server/staticfiles
 /server/media
 /server/local_settings.py
