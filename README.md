@@ -1,4 +1,3 @@
-## This project is under active maintenance and enhancement. Please check back soon.
 
 # The Ecommerce project
 
@@ -18,21 +17,43 @@ run in development mode `npm run dev`
 
 ## Server Installation
 
+navigate to server directory: `cd server`
+
 install and configure postgres database
 
 create .env file run: `cp .env.example .env`
 
 setup credentials in the .env file from postgres databse
 
-navigate to server directory: `cd server`
+Create a Python virtual environment
 
-install node dependencies: `npm install`
+```bash
+# Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
 
-run in development mode: `npm run dev`
+# Windows (PowerShell)
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
 
-Generate the Prisma Client: `npx prisma generate`
+install python dependencies: `pipenv install`
 
-migrate the prisma database `npx prisma migrate dev --name <migration-name>`
+Set environment variables
+
+```bash
+cp .env.example .env   # Linux/macOS
+copy .env.example .env # Windows CMD
+```
+
+migrate the database
+
+```bash
+py manage.py makemigrations
+py manage.py migrate
+```
+
+run in development mode: `py manage.py runserver`
 
 ## Installation using docker
 
