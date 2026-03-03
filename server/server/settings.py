@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'orders',
     'accounts',
     'stores',
-    'tags'
+    'tags',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -149,3 +152,8 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", # dev server
+    "https://yourfrontenddomain.com",
+]
