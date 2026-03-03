@@ -2,6 +2,9 @@ import uuid
 from django.conf import settings
 from django.db import models
 
+from stores.models import Store
+from tags.models import Tag
+
 class Product(models.Model):
     id = models.UUIDField(
         primary_key=True,
@@ -28,6 +31,19 @@ class Product(models.Model):
         upload_to='products/'
     )
 
+    store = models.ForeignKey(
+        Store,
+        on_delete=models.CASCADE,
+        related_name='products',
+        null=True,
+    )
+  
+    tags = models.ManyToManyField(
+      Tag,
+      related_name='products',
+      blank=True
+    )
+    
     description = models.TextField()
 
     created_at = models.DateTimeField(

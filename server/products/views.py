@@ -1,5 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from tags.serializers import TagSerializer
 from .models import Product
 from .serializers import ProductSerializer
 
@@ -44,5 +46,15 @@ def product_delete(request, product_id):
         product = Product.objects.get(id=product_id)
         product.delete()
         return Response({'message': f'Product {product_id} deleted successfully'},status=204)
+    except Product.DoesNotExist:
+        return Response({'error': 'Product not found'}, status=404)
+
+@api_view(['GET'])
+def product_tags(request, product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        tags = product.tags.all()
+        serializer = TagSerializer(tags, many=True)
+        return Response({'tags': serializer.data}, status=200)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
