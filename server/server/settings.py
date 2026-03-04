@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'tags',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    'categories',
 ]
 
 MIDDLEWARE = [

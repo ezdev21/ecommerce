@@ -2,6 +2,7 @@ import uuid
 from django.conf import settings
 from django.db import models
 
+from categories.models import Category
 from stores.models import Store
 from tags.models import Tag
 
@@ -43,7 +44,9 @@ class Product(models.Model):
       related_name='products',
       blank=True
     )
-    
+
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', null=True)
+
     description = models.TextField()
 
     created_at = models.DateTimeField(
