@@ -17,13 +17,21 @@ class OrderItem(models.Model):
       related_name="orderitems",
     )
     
-    order_id = models.IntegerField()
+    order = models.ForeignKey(
+      'orders.Order',
+      on_delete=models.CASCADE,
+      related_name='order_items'
+    )
     
-    product_id = models.IntegerField()
+    product = models.ForeignKey(
+      'products.Product',
+      on_delete=models.CASCADE,
+      related_name='order_items'  
+    )
     
-    quantity = models.IntegerField()
+    quantity = models.PositiveIntegerField()
     
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"OrderItem {self.id} - Order {self.order_id} - Product {self.product_id}"
