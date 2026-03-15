@@ -32,22 +32,24 @@ def product_create(request):
 def product_update(request, product_id):
     try:
         product = Product.objects.get(id=product_id)
-        serializer = ProductSerializer(product, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'message': f'Product {product_id} updated successfully', 'product': serializer.data},status=200)
-        return Response(serializer.errors, status=400)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
+    
+    serializer = ProductSerializer(product, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({'message': f'Product {product_id} updated successfully', 'product': serializer.data},status=200)
+    return Response(serializer.errors, status=400)
 
 @api_view(['DELETE'])
 def product_delete(request, product_id):
     try:
         product = Product.objects.get(id=product_id)
-        product.delete()
-        return Response({'message': f'Product {product_id} deleted successfully'},status=204)
     except Product.DoesNotExist:
         return Response({'error': 'Product not found'}, status=404)
+    
+    product.delete()
+    return Response({'message': f'Product {product_id} deleted successfully'},status=204)
 
 @api_view(['GET'])
 def product_tags(request, product_id):
