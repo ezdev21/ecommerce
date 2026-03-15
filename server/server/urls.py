@@ -17,4 +17,6 @@ urlpatterns = [
     path('tags/', include('tags.urls')),
     path('categories/', include('categories.urls')),
     path('auth/', include('accounts.urls')),
+    path('cartitems/', include('cartitems.urls')),
+    path('orderitems/', include('orderitems.urls')),
 ]

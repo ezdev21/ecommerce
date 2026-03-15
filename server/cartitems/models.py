@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from server.server import settings
+from django.conf import settings
 
 # Create your models here.
 class CartItem(models.Model):
@@ -15,12 +15,18 @@ class CartItem(models.Model):
     user = models.ForeignKey(
       settings.AUTH_USER_MODEL,
       on_delete=models.CASCADE,
-      related_name="products",
+      related_name="cartitems",
     )
     
     product = models.ForeignKey(
       'products.Product', 
       on_delete=models.CASCADE
+    )
+    
+    cart = models.ForeignKey(
+      'carts.Cart', 
+      on_delete=models.CASCADE,
+      related_name='cart_items'
     )
     
     quantity = models.PositiveIntegerField(default=1)
